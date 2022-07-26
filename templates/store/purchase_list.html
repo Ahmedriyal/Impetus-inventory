@@ -1,0 +1,99 @@
+{% extends 'base/base.html' %}
+
+{% block title %}Purchase List{% endblock title %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Dashboard</h1>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a href="#">Dashboard</a></li>
+                            <li><a href="#">Purchase</a></li>
+                            <li class="active">List</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock breadcrumbs %}
+
+
+{% block content %}
+<form method="get" style="padding: 0rem 1rem 1rem 1rem;">
+    {{purchase_filter.form}}
+
+    <button class="btn btn-primary" style="margin-bottom: 5px; padding: 0 0.75rem; font-size: 15px;"
+        type="submit">Search</button>
+</form>
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card">
+
+            <div class="card-body">
+                <div class="row m-0">
+                    <div class="col-sm-4" style="align-self: center;">
+                        <h4 class="box-title">Purchase List </h4>
+                    </div>
+                    <div class="col-sm-8">
+                        <a class="btn btn-primary m-2" style="padding: 0.25rem 0.75rem;
+                    font-size: 15px;
+                    margin: 0!important;
+                    float: right;" href="{% url 'purchase-pdf' %}">Create PDF</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body--">
+                <div class="table-stats order-table ov-h">
+                    <table class="table ">
+                        <thead>
+                            <tr>
+                                <th class="serial">#</th>
+                                <th style="width: 250px;">Item Name</th>
+                                <th style="text-align: center;">Quantity</th>
+                                <th style="text-align: right;">Unit Price</th>
+                                <th style="text-align: right;">Total Price</th>
+                                <th style="text-align: center;">Purchased By</th>
+                                <th>Purchased From</th>
+                                <th>Purchase Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% if purchase %}
+                            {% for purchase in purchase %}
+                            <tr>
+                                <td class="serial">{{ forloop.counter }}</td>
+                                <td>{{ purchase.item_name }} {{ purchase.category }}</td>
+                                <td style="text-align: center;">{{ purchase.quantity }}</td>
+                                <td style="text-align: right;">{{ purchase.unit_price }}</td>
+                                <td style="text-align: right;">{{ purchase.get_total }}</td>
+                                <td style="text-align: center;">{{ purchase.purchased_by }}</td>
+                                <td>{{ purchase.purchased_from }}</td>
+                                <td style="text-align: left;">{{ purchase.purchase_date }}</td>
+                            </tr>
+                            {% endfor %}
+                            {% else %}
+                            <tr>
+                                <td>No Purchase Data</td>
+                            </tr>
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </div> <!-- /.table-stats -->
+            </div>
+        </div> <!-- /.card -->
+    </div> <!-- /.col-lg-8 -->
+</div>
+{% endblock content %}

@@ -1,0 +1,98 @@
+{% extends 'base/base.html' %}
+
+{% block title %}Create Inventory{% endblock title %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Dashboard</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a href="#">Dashboard</a></li>
+                            <li><a href="#">Inventory</a></li>
+                            <li class="active">Create</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock breadcrumbs %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <strong class="card-title">Inventory Form</strong>
+            </div>
+            <div class="card-body">
+                <!-- Credit Card -->
+                <div id="pay-invoice">
+                    <div class="card-body">
+                        <!-- <form action="#" method="post" novalidate="novalidate">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="device_name" class="control-label mb-1">Device Name</label>
+                                {{ form.device_name }}
+                            </div>
+                            <div class="form-group">
+                                <label for="device_name" class="control-label mb-1">Category</label>
+                                {{ form.category }}
+                            </div>
+                            <div class="form-group">
+                                <label for="company_or_user" class="control-label mb-1">Company/User</label>
+                                {{ form.company_or_user }}
+                            </div>
+                            <div class="form-group">
+                                <label for="nos" class="control-label mb-1">Quantity</label>
+                                {{ form.quantity }}
+                            </div>
+                            <div class="form-group">
+                                <label for="condition" class="control-label mb-1">Condition</label>
+                                {{ form.condition }}
+                            </div>
+                            <div class="form-group">
+                                <label for="condition" class="control-label mb-1">Purchased By</label>
+                                {{ form.purchased_by }}
+                            </div>
+                            <div class="form-group">
+                                <label for="condition" class="control-label mb-1">Purchased From</label>
+                                {{ form.purchased_from }}
+                            </div>
+                            <div class="form-group">
+                                <label for="condition" class="control-label mb-1">Price</label>
+                                {{ form.price }}
+                            </div> -->
+                            <form action="" method="POST" enctype="multipart/form-data" class="form-input">
+                                {% csrf_token %}
+                                <div class="form">
+                                    <div class="form-row-1">
+                                        {% include 'store/form.html' with form=form %}
+                                    </div>
+                                </div>
+                            <div>
+                                <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
+                                    <span id="payment-button-amount">Add</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div> <!-- .card -->
+
+    </div><!--/.col-->
+</div>
+{% endblock content %}
