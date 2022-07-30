@@ -51,12 +51,6 @@ class Inventory(models.Model):
 
 # ------ Purchase Detail Model -------
 class Purchase_Detail(models.Model):
-    Purchased_Choice = (
-        ('Ahad', 'Ahad'),
-        ('Sabbir', 'Sabbir'),
-        ('Siddique', 'Siddique'), 
-    )
-
     Category_Choice = (
         ('CPU', 'CPU'),
         ('EC10', 'EC10'),
@@ -83,7 +77,7 @@ class Purchase_Detail(models.Model):
     category = models.CharField(max_length=200, choices=Category_Choice, null=True, blank=True)
     quantity = models.IntegerField(null=True, blank=True, default=0)
     unit_price = models.IntegerField(null=True, blank=True, default=0)
-    purchased_by =  models.CharField(max_length=50, choices=Purchased_Choice, null=True, blank=True)
+    purchased_by =  models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     purchased_from = models.CharField(max_length=500, null=True, blank=True)
     purchase_date = models.DateField()
     # created_date = models.DateField(auto_now_add=True)

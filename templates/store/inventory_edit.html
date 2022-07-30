@@ -30,68 +30,16 @@
 {% endblock breadcrumbs %}
 
 {% block content %}
-<div class="row">
-    <div class="col-lg-12">
-        <div class="card">
-            <div class="card-header">
-                <strong class="card-title">Edit</strong>
-            </div>
-            <div class="card-body">
-                <!-- Credit Card -->
-                <div id="pay-invoice">
-                    <div class="card-body">
-                        <!-- <form action="#" method="post" novalidate="novalidate">
-                            {% csrf_token %}
-                            <div class="form-group">
-                                <label for="device_name" class="control-label mb-1">Device Name</label>
-                                {{ form.device_name }}
-                            </div>
-                            <div class="form-group">
-                                <label for="device_name" class="control-label mb-1">Category</label>
-                                {{ form.category }}
-                            </div>
-                            <div class="form-group">
-                                <label for="company_or_user" class="control-label mb-1">Company/User</label>
-                                {{ form.company_or_user }}
-                            </div>
-                            <div class="form-group">
-                                <label for="nos" class="control-label mb-1">Quantity</label>
-                                {{ form.quantity }}
-                            </div>
-                            <div class="form-group">
-                                <label for="condition" class="control-label mb-1">Condition</label>
-                                {{ form.condition }}
-                            </div>
-                            <div class="form-group">
-                                <label for="condition" class="control-label mb-1">Purchased By</label>
-                                {{ form.purchased_by }}
-                            </div>
-                            <div class="form-group">
-                                <label for="condition" class="control-label mb-1">Purchased From</label>
-                                {{ form.purchased_from }}
-                            </div>
-                            <div class="form-group">
-                                <label for="condition" class="control-label mb-1">Price</label>
-                                {{ form.price }}
-                            </div> -->
-                            <!-- <div class="form-group">
-                                <label for="condition" class="control-label mb-1">Purchase Date</label>
-                                {{ form.purchase_date }}
-                            </div> -->
-                            <!-- <div class="row">
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <label for="password" class="control-label mb-1">Password</label>
-                                        {{ form.password }}
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <label for="retype_password" class="control-label mb-1">Retype Password</label>
-                                        {{ form.retype_password }}
-                                    </div>
-                                </div>
-                            </div> -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <strong class="card-title">Edit</strong>
+                </div>
+                <div class="card-body">
+                    <div id="pay-invoice">
+                        <div class="card-body">
                             <form action="" method="POST" enctype="multipart/form-data" class="form-input">
                                 {% csrf_token %}
                                 <div class="form">
@@ -99,18 +47,19 @@
                                         {% include 'store/form.html' with form=form %}
                                     </div>
                                 </div>
-                            <div>
-                                <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
-                                    <span id="payment-button-amount">Confirm</span>
-                                </button>
-                            </div>
-                        </form>
+                                <div>
+                                    <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
+                                        <span id="payment-button-amount">Confirm</span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
+
                 </div>
-
             </div>
-        </div> <!-- .card -->
 
-    </div><!--/.col-->
+        </div>
+    </div>
 </div>
 {% endblock content %}
