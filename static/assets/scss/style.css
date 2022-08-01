@@ -511,7 +511,7 @@ h5 {
 
 ul,
 ol {
-  padding-left: 0;
+  padding-left: 18px;
 }
 
 .btn:focus,
@@ -3260,7 +3260,7 @@ footer.site-footer .footer-inner a {
     top: 51px !important;
   }
 
-  .content {
+  .container {
     padding: 1.25em;
   }
 
@@ -3550,4 +3550,18 @@ select{
 #id_device_name{
   border-radius: 5px;
   border: 1px solid lightgrey;
+}
+
+.alert-btn{
+  border: 1px solid indianred;
+  font-weight: 500;
+  /* background-color: #ed9fa6; */
+  background-color: #df999f;
+}
+
+.ps-condition{
+  font-size: 12px;
+  margin-bottom: 0px;
+  color: black;
+  line-height: normal;
 }

@@ -63,6 +63,9 @@ def login_page(request):
             if user:
                 login(request, user)
                 return redirect('dashboard')
+            else:
+                messages.error(request, "Wrong username or password")
+    
     context = {'form': forms}
     return render(request, 'users/login.html', context)
 
