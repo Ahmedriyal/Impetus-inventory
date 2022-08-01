@@ -94,13 +94,24 @@ WSGI_APPLICATION = 'inventory.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dhche2pq2nj3t',
-        'USER': 'ylijeggazmhwtg',
-        'PASSWORD': 'f5a4d31d844e64f4620b6f69aed1779405e6241ce8f33e66b89441439e48ccd1',
+        'NAME': 'db0i2qho91i28k',
+        'USER': 'lsvxgkutftrvbh',
+        'PASSWORD': '68192ea08b05bc93af2a567d2d25bcbf772e7b439a8cf59e173db7d9dfc71985',
         'HOST': 'ec2-34-230-153-41.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'impetus-inventory',
+#         'USER': 'postgres',
+#         'PASSWORD': 'ahad1234',
+#         'HOST': 'localhost',
+#         'PORT': '5433',
+#     }
+# }
 
 
 # Password validation
