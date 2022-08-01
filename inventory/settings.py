@@ -84,10 +84,21 @@ WSGI_APPLICATION = 'inventory.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dhche2pq2nj3t',
+        'USER': 'ylijeggazmhwtg',
+        'PASSWORD': 'f5a4d31d844e64f4620b6f69aed1779405e6241ce8f33e66b89441439e48ccd1',
+        'HOST': 'ec2-34-230-153-41.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
