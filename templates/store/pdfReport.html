@@ -133,12 +133,13 @@
 
         <thead>
             <tr">
-                <th scope="col" style="width: 50px;">SL No.</th>
-                <th scope="col" style="width: 280px;">Item Name</th>
-                <th scope="col" style="width: 100px;">Category</th>
-                <th scope="col">Company/User</th>
-                <th scope="col" style="width: 65px;">Quantity</th>
-                <th scope="col">Condition</th>
+                <th scope="col" style="width: 40px;">SL No.</th>
+                <th scope="col" style="width: 200px;">Item Name</th>
+                <th scope="col" style="width: 90px;">Category</th>
+                <th scope="col" style="width: 95px;">Company/User</th>
+                <th scope="col" style="width: 60px;">Quantity</th>
+                <th scope="col" style="width: 70px;">Condition</th>
+                <th scope="col">Note</th>
             </tr>
         </thead>
         <tbody>
@@ -151,6 +152,7 @@
                 <td>{{ inventory.company_or_user }}</td>
                 <td>{{ inventory.quantity }}</td>
                 <td>{{ inventory.condition }}</td>
+                <td>{{ inventory.note }}</td>
             </tr>
             {% endfor %}
             {% else %}

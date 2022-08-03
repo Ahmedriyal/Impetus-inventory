@@ -44,6 +44,7 @@ class Inventory(models.Model):
     company_or_user = models.CharField(max_length=200, choices=Company_Choice)
     quantity = models.IntegerField(null=True, blank=True, default=0)
     condition =  models.CharField(max_length=10, choices=Condition_Choice)
+    note = models.CharField(max_length=990, null=True, blank=True)
 
     def __str__(self):
         return self.device_name
