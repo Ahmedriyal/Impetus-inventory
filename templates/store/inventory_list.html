@@ -77,8 +77,8 @@
                                     <td style="text-align: center;">{{ inventory.company_or_user }}</td>
                                     <td style="text-align: center;">{{ inventory.quantity }}</td>
                                     <td style="text-align: center;">{{ inventory.condition }}</td>
-                                    <td style="width: 200px; color: red; text-align: center;">{{ inventory.note }}</td>
-                                    <td>
+                                    <td style="width: 200px; color: red; text-align: center; background-color: rgb(241, 247, 253);">{{ inventory.note }}</td>
+                                    <td style="width: 180px;">
                                         <a class="btn btn-info btn-sm mr-2"
                                             href="{% url 'inventory-item-edit' inventory.id %}">Edit</a>
                                         <a class="btn btn-danger btn-sm ml-2"

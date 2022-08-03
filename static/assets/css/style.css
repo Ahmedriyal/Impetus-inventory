@@ -2006,6 +2006,10 @@ header .form-inline .search-form.close {
   font-size: 12px;
 }
 
+.table{
+  margin-bottom: 0;
+}
+
 /* Stats Table */
 .table-stats table {
   font-family: 'Open Sans';
