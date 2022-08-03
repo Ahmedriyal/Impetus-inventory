@@ -165,3 +165,5 @@ AUTH_USER_MODEL = 'users.User'
 django_heroku.settings(locals())
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

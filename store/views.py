@@ -9,6 +9,7 @@ from django.http import HttpResponse
 from django.template.loader import get_template
 from xhtml2pdf import pisa
 import datetime
+from .decorators import auth_users, allowed_users
 
 from users.models import User
 from .models import (
@@ -138,7 +139,7 @@ def inventory_edit(request, pk):
 
 # ------ Inventory Item Delete View ------
 @login_required(login_url='login')
-# @allowed_users(allowed_roles=['Admin'])
+@allowed_users(allowed_roles=['Admin'])
 def inventory_delete(request, pk):
     item = Inventory.objects.get(id=pk)
     if request.method == 'POST':

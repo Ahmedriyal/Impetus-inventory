@@ -5,10 +5,12 @@ from .forms import LoginForm, CreateUserForm
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.contrib.auth import get_user_model
+from django.contrib.auth.models import Group, auth
 
 User = get_user_model()
 
 
+# ------ User Sign Up View ------
 def register(request):
     if request.method == 'POST':
         form = CreateUserForm(request.POST)
@@ -29,21 +31,19 @@ def register(request):
                     return redirect('register')
 
                 else:
-                    user = User.objects.create_user(username=username, email=email, password=password1)
+                    user = User.objects.create_user(username=username, email=email, password=password1, is_employee = True)
                     user.save()
-                # auth.login(request, user)
+                    username = form.cleaned_data.get('username')
+                    group = Group.objects.get(name='Employee')
+                    user.groups.add(group)
+                    auth.login(request, user)
 
-                    messages.info(request, "User successfully created")
-                    return redirect('login')
+                    # messages.info(request, "User successfully created")
+                    return redirect('dashboard')
             
             else:
                 messages.error(request, "Password not matching")
                 return redirect('register')
-            # user = form.save()
-            # user.save()
-            # group = Group.objects.get(name='Customers')
-            # user.groups.add(group)
-            # return redirect('login')
     else:
         form = CreateUserForm()
     context = {
@@ -52,6 +52,7 @@ def register(request):
     return render(request, 'users/register.html', context)
 
 
+# ------ User Login View ------
 def login_page(request):
     forms = LoginForm()
     if request.method == 'POST':
@@ -70,6 +71,7 @@ def login_page(request):
     return render(request, 'users/login.html', context)
 
 
+# ------ User Logout View ------
 def logout_page(request):
     logout(request)
     return redirect('login')
