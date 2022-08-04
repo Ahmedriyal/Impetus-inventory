@@ -1,6 +1,13 @@
 from django import forms
 
-from .models import Inventory, Purchase_Detail
+from .models import Inventory, Purchase_Detail, Category
+
+
+# ------ Categoty Form ------
+class CategoryForm(forms.ModelForm):
+    class Meta:
+        model = Category
+        fields = '__all__'
 
 
 # ------ Purchase Detail Form ------
@@ -8,6 +15,7 @@ class Purchase_DetailForm(forms.ModelForm):
     class Meta:
         model = Purchase_Detail
         fields = '__all__'
+
 
 # ------ Inventory Form ------ 
 class InventoryForm(forms.ModelForm):

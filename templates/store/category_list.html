@@ -1,0 +1,94 @@
+{% extends 'base/base.html' %}
+
+{% block title %}Category List{% endblock title %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Dashboard</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a href="#">Dashboard</a></li>
+                            <li><a href="#">Category</a></li>
+                            <li class="active">List</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock breadcrumbs %}
+
+{% block content %}
+<div class="container">
+    <!-- <form method="get" style="padding: 0rem 1rem 1rem 1rem;" class="form-input">
+        {{inventory_filter.form}}
+
+        <button class="btn btn-primary" style="margin-bottom: 5px; padding: 0 0.75rem; font-size: 15px;"
+            type="submit">Search</button>
+    </form> -->
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row m-0">
+                        <div class="col-sm-4" style="align-self: center;">
+                            <h4 class="box-title">Category List </h4>
+                        </div>
+                        <!-- <div class="col-sm-8">
+                            <a class="btn btn-primary m-2" style="padding: 0.25rem 0.75rem;
+                    font-size: 15px;
+                    margin: 0!important;
+                    float: right;" href="{% url 'create-pdf' %}">Create PDF</a>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="card-body--">
+                    <div class="table-stats order-table ov-h">
+                        <table class="table ">
+                            <thead>
+                                <tr>
+                                    <th class="serial" style="width: 50px;">#</th>
+                                    <th style="text-align: left;">Category Name</th>
+                                    <!-- <th style="width: 120px;"">Company/User</th>
+                                    <th style="text-align: center; width: 50px;">Quantity</th>
+                                    <th style="text-align: center; width: 50px;">Condition</th>
+                                    <th style="width: 150px; text-align: center;">Note</th>
+                                    <th> </th> -->
+                                    <!-- <th>Purchase Date</th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% if category %}
+                                {% for category in category %}
+                                <tr>
+                                    <td class="serial">&#8226;</td>
+                                    <td style="float: left;">{{ category.category_name }}</td>
+                                </tr>
+                                {% endfor %}
+                                {% else %}
+                                <tr>
+                                    <td colspan="2" style="text-align: center; font-size: 15px;">No Category</td>
+                                </tr>
+                                {% endif %}
+                            </tbody>
+                        </table>
+                    </div> <!-- /.table-stats -->
+                </div>
+            </div> <!-- /.card -->
+        </div> <!-- /.col-lg-8 -->
+
+
+    </div>
+</div>
+{% endblock content %}

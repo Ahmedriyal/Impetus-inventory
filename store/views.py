@@ -1,5 +1,6 @@
 
 import email
+from unicodedata import category
 from urllib import request
 from django.shortcuts import render, redirect
 from django.views.generic import ListView
@@ -10,18 +11,55 @@ from django.template.loader import get_template
 from xhtml2pdf import pisa
 import datetime
 from .decorators import auth_users, allowed_users
+from django.contrib import messages
 
 from users.models import User
 from .models import (
+    Category,
     Purchase_Detail,
     Inventory,
 )
 
 from .forms import (
+    CategoryForm,
     Purchase_DetailForm,
     InventoryForm,
 )
 
+
+# ------ Category View ------
+def category(request):
+    if request.method == 'POST':
+            form = CategoryForm(request.POST)
+            if form.is_valid():
+                category_name = request.POST['category_name']
+
+                if Category.objects.filter(category_name=category_name).exists():
+                    messages.error(request, "Category exist")
+                    return redirect('category')
+                else:
+                    category = form.save(commit=False)
+                    category.save()
+
+                    return redirect('category-list')
+    else:
+        form = CategoryForm()
+
+    
+
+    context = {'form': form}
+    return render(request, 'store/category.html', context)
+
+
+# ------ Category List View ------
+def CategoryListView(request):
+    category = Category.objects.all().order_by('category_name')
+
+    # inventory_filter = InventoryFilter(request.GET, queryset=inventory)
+    # inventory = inventory_filter.qs
+
+    context = {'category': category}
+    return render(request, 'store/category_list.html', context)
 
 
 # ------ Purchase Detail View ------

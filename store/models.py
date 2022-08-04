@@ -1,8 +1,15 @@
 from multiprocessing import Condition
+# from unicodedata import category
 from django.db import models
-
-
 from users.models import User
+
+
+# ------ Category Model -------
+class Category(models.Model):
+    category_name = models.CharField(max_length=200, null=True, blank=True)
+
+    def __str__(self):
+        return self.category_name
 
 
 # ------ Inventory Model -------
@@ -20,27 +27,8 @@ class Inventory(models.Model):
         ('BMS', 'BMS'),
     )
 
-    Category_Choice = (
-        ('CPU', 'CPU'),
-        ('EC10', 'EC10'),
-        ('HDD', 'HDD'),
-        ('IP Camera', 'IP Camera'),
-        ('Keyboard', 'Keyboard'),
-        ('Monitor', 'Monitor'),
-        ('Mouse', 'Mouse'),
-        ('PABX', 'PABX'),
-        ('Pendrive', 'Pendrive'),
-        ('Printer', 'Printer'),
-        ('PoE Switch', 'PoE Switch'),
-        ('RAM', 'RAM'),
-        ('Router', 'Router'),
-        ('SSD', 'SSD'),
-        ('Tab', 'Tab'),
-        ('UPS', 'UPS'),
-        ('Other', 'Other'),
-    )
     device_name = models.CharField(max_length=500, null=True, blank=True)
-    category = models.CharField(max_length=200, choices=Category_Choice, null=True, blank=True)
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True)
     company_or_user = models.CharField(max_length=200, choices=Company_Choice)
     quantity = models.IntegerField(null=True, blank=True, default=0)
     condition =  models.CharField(max_length=10, choices=Condition_Choice)
@@ -52,30 +40,8 @@ class Inventory(models.Model):
 
 # ------ Purchase Detail Model -------
 class Purchase_Detail(models.Model):
-    Category_Choice = (
-        ('CPU', 'CPU'),
-        ('EC10', 'EC10'),
-        ('HDD', 'HDD'),
-        ('Ink', 'Ink'),
-        ('IP Camera', 'IP Camera'),
-        ('Keyboard', 'Keyboard'),
-        ('Monitor', 'Monitor'),
-        ('Mouse', 'Mouse'),
-        ('PABX', 'PABX'),
-        ('Pendrive', 'Pendrive'),
-        ('Printer', 'Printer'),
-        ('PoE Switch', 'PoE Switch'),
-        ('RAM', 'RAM'),
-        ('Router', 'Router'),
-        ('SSD', 'SSD'),
-        ('Tab', 'Tab'),
-        ('Toner', 'Toner'),
-        ('UPS', 'UPS'),
-        ('Other', 'Other'),
-    )
-    # user = models.OneToOneField(User, on_delete=models.CASCADE)
     item_name = models.CharField(max_length=500, null=True, blank=True)
-    category = models.CharField(max_length=200, choices=Category_Choice, null=True, blank=True)
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True)
     quantity = models.IntegerField(null=True, blank=True, default=0)
     unit_price = models.IntegerField(null=True, blank=True, default=0)
     purchased_by =  models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)

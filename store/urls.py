@@ -1,8 +1,10 @@
 from django.urls import path
 
 from .views import (
+    category,
     Purchase,
     create_inventory,
+    CategoryListView,
     PurchaseListView,
     InventoryListView,
     inventory_delete,
@@ -12,8 +14,10 @@ from .views import (
 )
 
 urlpatterns = [
+    path('category/', category, name='category'),
     path('purchase-detail/', Purchase, name='purchase-detail'),
     path('create-inventory/', create_inventory, name='create-inventory'),
+    path('category-list/', CategoryListView, name='category-list'),
     path('purchase-list/', PurchaseListView, name='purchase-list'),
     path('inventory-list/', InventoryListView, name='inventory-list'),
     path('inventory-list/delete/<int:pk>/', inventory_delete,

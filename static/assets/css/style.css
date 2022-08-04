@@ -802,7 +802,7 @@ aside.left-panel:hover {
   color: #41434d;
   clear: both;
   display: block;
-  font-family: 'Open Sans';
+  font-family: 'Montserrat';
   font-size: 14px;
   font-weight: 700;
   line-height: 50px;
@@ -969,7 +969,7 @@ aside.left-panel:hover {
   background: #a9d86e;
   border-radius: 50%;
   color: #fff;
-  font-family: 'Open Sans';
+  font-family: 'Montserrat';
   font-size: 9px;
   font-weight: 700;
   float: right;
@@ -1563,7 +1563,7 @@ header .form-inline .search-form.close {
   background: #d9534f;
   border-radius: 50%;
   color: #fff;
-  font-family: 'Open Sans';
+  font-family: 'Montserrat';
   font-size: 9px;
   font-weight: 700;
   float: right;
@@ -1754,7 +1754,7 @@ header .form-inline .search-form.close {
   margin-right: -20px;
   border-top: 1px solid #ededed;
   background: #fff;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Montserrat';
 }
 
 .card.weather-box .nextdays .days {
@@ -2002,7 +2002,7 @@ header .form-inline .search-form.close {
 
 #flotPie1 .legendLabel {
   color: #868e96;
-  font-family: 'Open Sans';
+  font-family: 'Montserrat';
   font-size: 12px;
 }
 
@@ -2012,7 +2012,7 @@ header .form-inline .search-form.close {
 
 /* Stats Table */
 .table-stats table {
-  font-family: 'Open Sans';
+  font-family: 'Montserrat';
 }
 
 .table-stats table th {
@@ -2049,9 +2049,9 @@ header .form-inline .search-form.close {
 }
 
 .table-stats table td {
-  color: #343a40;
+  color: #000000;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 500;
   text-transform: capitalize;
   vertical-align: middle;
 }
@@ -2060,7 +2060,7 @@ header .form-inline .search-form.close {
 
 /* Timeline */
 .timeline li {
-  font-family: 'Open Sans';
+  font-family: 'Montserrat';
   list-style: none;
   padding: 5px 0;
   position: relative;
@@ -2902,7 +2902,7 @@ footer.site-footer {
 
 footer.site-footer .footer-inner {
   color: #78909c;
-  font-family: 'Open Sans';
+  font-family: 'Montserrat';
   font-size: 14px;
   line-height: 1.5;
   padding: 2.45em 1.125em;
