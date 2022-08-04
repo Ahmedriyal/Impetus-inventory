@@ -3567,6 +3567,13 @@ select{
   background-color: #df999f;
 }
 
+.alert-danger{
+  color: #c20707;
+  background-color: #fdf6f6;
+  border-color: #de7575;
+  font-weight: 500;
+}
+
 .ps-condition{
   font-size: 12px;
   margin-bottom: 0px;
