@@ -73,7 +73,11 @@
                                 {% for inventory in inventory %}
                                 <tr>
                                     <td class="serial">{{ forloop.counter }}</td>
+                                    {% if inventory.category.category_name == "Other" %}
+                                    <td style="width: 210px;">{{ inventory.device_name }}</td>
+                                    {% else %}
                                     <td style="width: 210px;">{{ inventory.device_name }} {{ inventory.category }}</td>
+                                    {% endif %}
                                     <td style="text-align: center;">{{ inventory.company_or_user }}</td>
                                     <td style="text-align: center;">{{ inventory.quantity }}</td>
                                     <td style="text-align: center;">{{ inventory.condition }}</td>
