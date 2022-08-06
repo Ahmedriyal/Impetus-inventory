@@ -81,7 +81,11 @@
                                     <td style="text-align: center;">{{ inventory.company_or_user }}</td>
                                     <td style="text-align: center;">{{ inventory.quantity }}</td>
                                     <td style="text-align: center;">{{ inventory.condition }}</td>
+                                    {% if inventory.note == None %}
+                                    <td style="width: 200px; color: red; text-align: center; background-color: rgb(241, 247, 253);"> </td>
+                                    {% else %}
                                     <td style="width: 200px; color: red; text-align: center; background-color: rgb(241, 247, 253);">{{ inventory.note }}</td>
+                                    {% endif %}
                                     <td style="width: 180px;">
                                         <a class="btn btn-info btn-sm mr-2"
                                             href="{% url 'inventory-item-edit' inventory.id %}">Edit</a>

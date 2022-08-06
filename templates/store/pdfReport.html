@@ -152,7 +152,11 @@
                 <td>{{ inventory.company_or_user }}</td>
                 <td>{{ inventory.quantity }}</td>
                 <td>{{ inventory.condition }}</td>
+                {% if inventory.note == None %}
+                <td>---</td>
+                {% else %}
                 <td>{{ inventory.note }}</td>
+                {% endif %}
             </tr>
             {% endfor %}
             {% else %}
