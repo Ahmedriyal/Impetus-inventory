@@ -34,11 +34,11 @@ def register(request):
                 # auth.login(request, user)
 
                     messages.info(request, "User successfully created")
-                    return redirect('login')
+                    return redirect('dashboard')
             
             else:
                 messages.error(request, "Password not matching")
-                return redirect('register')
+                return redirect('login')
             # user = form.save()
             # user.save()
             # group = Group.objects.get(name='Customers')

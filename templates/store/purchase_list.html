@@ -69,6 +69,7 @@
                                     <th style="text-align: center;">Purchased By</th>
                                     <th>Purchased From</th>
                                     <th>Purchase Date</th>
+                                    <th style="text-align: left;">Receipt</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -76,13 +77,14 @@
                                 {% for purchase in purchase %}
                                 <tr>
                                     <td class="serial">{{ forloop.counter }}</td>
-                                    <td>{{ purchase.item_name }} {{ purchase.category }}</td>
+                                    <td>{% if purchase.category != "Other" %} {{ purchase.item_name }} {{ purchase.category }} {% else %} {{ purchase.item_name }} {% endif %}</td>
                                     <td style="text-align: center;">{{ purchase.quantity }}</td>
                                     <td style="text-align: right;">{{ purchase.unit_price }}</td>
                                     <td style="text-align: right;">{{ purchase.get_total }}</td>
                                     <td style="text-align: center;">{{ purchase.purchased_by }}</td>
                                     <td>{{ purchase.purchased_from }}</td>
                                     <td style="text-align: left;">{{ purchase.purchase_date }}</td>
+                                    <td style="text-align: left;">{% if purchase.receipt %}<a href="{{ purchase.receipt.url }}" style="color: black; text-decoration: underline;">Click to see</a>{% else %}#{% endif %}</td>
                                 </tr>
                                 {% endfor %}
                                 {% else %}

@@ -8,6 +8,11 @@ class Purchase_DetailForm(forms.ModelForm):
     class Meta:
         model = Purchase_Detail
         fields = '__all__'
+        widgets = {
+            'purchase_date': forms.DateInput(
+                attrs={'type': 'date', 'placeholder': 'yyyy-mm-dd (DOB)'}
+            )
+        }
 
 # ------ Inventory Form ------ 
 class InventoryForm(forms.ModelForm):

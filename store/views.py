@@ -26,9 +26,10 @@ from .forms import (
 # ------ Purchase Detail View ------
 def Purchase(request):
     if request.method == 'POST':
-            form = Purchase_DetailForm(request.POST)
+            form = Purchase_DetailForm(request.POST, request.FILES)
             if form.is_valid():
                 purchasedetail = form.save(commit=False)
+                purchasedetail.receipt = request.FILES['receipt']
                 purchasedetail.save()
 
                 return redirect('purchase-list')

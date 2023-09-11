@@ -58,6 +58,8 @@ class Purchase_Detail(models.Model):
         ('Ink', 'Ink'),
         ('IP Camera', 'IP Camera'),
         ('Keyboard', 'Keyboard'),
+        ('Laptop', 'Laptop'),
+        ('Mobile', 'Mobile'),
         ('Monitor', 'Monitor'),
         ('Mouse', 'Mouse'),
         ('PABX', 'PABX'),
@@ -80,6 +82,8 @@ class Purchase_Detail(models.Model):
     purchased_by =  models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     purchased_from = models.CharField(max_length=500, null=True, blank=True)
     purchase_date = models.DateField()
+    # image = models.ImageField(upload_to='img/', null=True, blank=True)
+    receipt = models.FileField(upload_to="receipt/", null=True, blank=True)
     # created_date = models.DateField(auto_now_add=True)
 
     def __str__(self):
