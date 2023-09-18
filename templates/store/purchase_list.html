@@ -68,6 +68,7 @@
                                     <th style="text-align: right;">Total Price</th>
                                     <th style="text-align: center;">Purchased By</th>
                                     <th>Purchased From</th>
+                                    <th>Purchased For</th>
                                     <th>Purchase Date</th>
                                     <th style="text-align: left;">Receipt</th>
                                 </tr>
@@ -81,8 +82,9 @@
                                     <td style="text-align: center;">{{ purchase.quantity }}</td>
                                     <td style="text-align: right;">{{ purchase.unit_price }}</td>
                                     <td style="text-align: right;">{{ purchase.get_total }}</td>
-                                    <td style="text-align: center;">{{ purchase.purchased_by }}</td>
+                                    <td style="text-align: center;">{% if purchase.purchased_by == None %} ------ {% else %} {{ purchase.purchased_by }} {% endif %}</td>
                                     <td>{{ purchase.purchased_from }}</td>
+                                    <td>{% if purchase.purchased_for == None %} ------ {% else %} {{ purchase.purchased_for }} {% endif %}</td>
                                     <td style="text-align: left;">{{ purchase.purchase_date }}</td>
                                     <td style="text-align: left;">{% if purchase.receipt %}<a href="{{ purchase.receipt.url }}" style="color: black; text-decoration: underline;">Click to see</a>{% else %}#{% endif %}</td>
                                 </tr>

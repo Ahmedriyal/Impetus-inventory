@@ -1657,6 +1657,7 @@ header .form-inline .search-form.close {
 
 .container{
   padding: 1.875em;
+  max-width: 1250px;
 }
 
 .card {

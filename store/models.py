@@ -74,6 +74,12 @@ class Purchase_Detail(models.Model):
         ('UPS', 'UPS'),
         ('Other', 'Other'),
     )
+    Company_Choice = (
+        ('Impetus Office', 'Impetus Office'),
+        ('Impetus Lounge', 'Impetus Lounge'),
+        ('Impetus Center', 'Impetus Center'),
+    )
+
     # user = models.OneToOneField(User, on_delete=models.CASCADE)
     item_name = models.CharField(max_length=500, null=True, blank=True)
     category = models.CharField(max_length=200, choices=Category_Choice, null=True, blank=True)
@@ -81,6 +87,7 @@ class Purchase_Detail(models.Model):
     unit_price = models.IntegerField(null=True, blank=True, default=0)
     purchased_by =  models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     purchased_from = models.CharField(max_length=500, null=True, blank=True)
+    purchased_for = models.CharField(max_length=200, choices=Company_Choice, null=True, blank=True)
     purchase_date = models.DateField()
     # image = models.ImageField(upload_to='img/', null=True, blank=True)
     receipt = models.FileField(upload_to="receipt/", null=True, blank=True)
