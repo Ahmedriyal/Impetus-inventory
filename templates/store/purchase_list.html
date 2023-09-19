@@ -86,7 +86,7 @@
                                     <td>{{ purchase.purchased_from }}</td>
                                     <td>{% if purchase.purchased_for == None %} ------ {% else %} {{ purchase.purchased_for }} {% endif %}</td>
                                     <td style="text-align: left;">{{ purchase.purchase_date }}</td>
-                                    <td style="text-align: left;">{% if purchase.receipt %}<a href="{{ purchase.receipt.url }}" style="color: black; text-decoration: underline;">Click to see</a>{% else %}#{% endif %}</td>
+                                    <td style="text-align: left;">{% if purchase.receipt %}<a href="{{ purchase.receipt.url }}" style="color: black; text-decoration: underline;">Click to see</a>{% else %} ------ {% endif %}</td>
                                 </tr>
                                 {% endfor %}
                                 {% else %}
